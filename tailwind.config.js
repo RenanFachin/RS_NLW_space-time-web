@@ -75,6 +75,10 @@ module.exports = {
         },
       },
 
+      fontSize: {
+        '5xl': '2.5rem',
+      },
+
       blur: {
         full: '194px',
       },

@@ -9,6 +9,9 @@ export async function GET(request: NextRequest) {
 
   const code = searchParams.get('code') // armazenando apenas o code
 
+  // Buscando nos cookies a chave redirectTo para saber qual página o usuário estava tentando acessar
+  const redirectTo = request.cookies.get('redirectTo')?.value
+
   // Enviando para o backend para a rota POST '/register'
   const registerResponse = await api.post('/register', {
     code,
@@ -20,7 +23,8 @@ export async function GET(request: NextRequest) {
   // console.log(token)
 
   // Redirecionando o usuário para a página home e guardando este token nos cookies
-  const redirectURL = new URL('/', request.url)
+  // Manda para uma página que o usuário estava tentando logar ou para a home caso não exista
+  const redirectURL = redirectTo ?? new URL('/', request.url)
 
   const cookieExpiresInSeconds = 60 * 60 * 24 * 7 // 7 days
 

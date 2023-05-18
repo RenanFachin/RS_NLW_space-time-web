@@ -10,12 +10,12 @@ export async function GET(request: NextRequest) {
   const code = searchParams.get('code') // armazenando apenas o code
 
   // Enviando para o backend para a rota POST '/register'
-  const registerReponse = await api.post('/register', {
+  const registerResponse = await api.post('/register', {
     code,
   })
 
   // o registerResponse vai retornar o token
-  const { token } = registerReponse.data
+  const { token } = registerResponse.data
 
   // console.log(token)
 

@@ -13,6 +13,7 @@ import { Copyright } from '@/components/Copyright'
 import { Hero } from '@/components/Hero'
 import { SignIn } from '@/components/SignIn'
 import { Profile } from '@/components/Profile'
+import { Toaster } from 'react-hot-toast'
 
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
 const baiJamjuree = BaiJamjuree({
@@ -52,11 +53,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
 
           {/* Right */}
-          <div className="flex flex-col bg-[url(../assets/bg-stars.svg)] bg-cover p-16">
+          <div className="flex max-h-screen flex-col overflow-y-scroll bg-[url(../assets/bg-stars.svg)] bg-cover">
             {/* Children é onde o conteúdo que é "alteravel" das páginas vai ser adicionado */}
             {children}
           </div>
         </main>
+
+        <Toaster />
       </body>
     </html>
   )

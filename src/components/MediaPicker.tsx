@@ -8,6 +8,7 @@ export function MediaPicker() {
   function onFileSelected(event: ChangeEvent<HTMLInputElement>) {
     // Garantindo que foi enviado um arquivo
     const { files } = event.target
+
     if (!files) {
       return
     }

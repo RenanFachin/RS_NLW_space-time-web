@@ -6,6 +6,7 @@ import { FormEvent } from 'react'
 import { api } from '@/lib/api'
 import Cookie from 'js-cookie'
 import { useRouter } from 'next/navigation'
+import toast from 'react-hot-toast'
 
 export function NewMemoryForm() {
   const router = useRouter()
@@ -54,6 +55,8 @@ export function NewMemoryForm() {
 
     // Redirecionando o usuário para rome
     router.push('/')
+
+    toast.success('Memória cadastrada com sucesso!')
   }
 
   return (

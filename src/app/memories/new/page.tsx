@@ -1,5 +1,4 @@
-'use client'
-
+import { MediaPicker } from '@/components/MediaPicker'
 import { Camera, ChevronLeft } from 'lucide-react'
 import Link from 'next/link'
 
@@ -39,12 +38,7 @@ export default function NewMemory() {
           </label>
         </div>
         {/* invisible h-0 w-0 => faz o elemento ficar invisível e não ocupar espaço */}
-        <input
-          onChange={(value) => console.log(value)}
-          type="file"
-          id="media"
-          className="invisible h-0 w-0"
-        />
+        <MediaPicker />
 
         <textarea
           name="content"
